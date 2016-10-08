@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.ujf-grenoble.fr/l3miage/cabinet"
+            xmlns="http://www.ujf-grenoble.fr/l3miage/cabinet"
+            elementFormDefault="qualified">
+
+    <xsd:element name="cabinet" type="Cabinet"/>
+    <xsd:complexType name="Cabinet">
+        <xsd:sequence>
+        <xsd:element name="nom"/>
+        <xsd:element name="adresse"    type="Adresse"/>
+        <xsd:element name="infirmiers" type="Infirmiers"/>
+        <xsd:element name="patients"   type="Patients"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Infirmiers">
+        <xsd:sequence>
+            <xsd:element name="infirmier" type="Infirmier" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Infirmier">
+        <xsd:sequence>
+            <xsd:element name="nom"/>
+            <xsd:element name="prénom"/>
+            <xsd:element name="photo" type="xsd:anyURI"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="IntervenantId"/>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Patients">
+        <xsd:sequence>
+            <xsd:element name="patient" type="Patient" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Patient">
+        <xsd:sequence>
+            <xsd:element name="nom"         type="xsd:string"/>
+            <xsd:element name="prénom"      type="xsd:string"/>
+            <xsd:element name="sexe"        type="SexeId"/>
+            <xsd:element name="naissance"   type="xsd:date"/>
+            <xsd:element name="numéro"      type="Nir"/>
+            <xsd:element name="adresse"     type="Adresse"/>
+            <xsd:element name="visite"      type="Visite"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:simpleType name="SexeId">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="M"/>
+            <xsd:enumeration value="F"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="Nir">
+        <xsd:restriction base="xsd:string">
+            <xsd:length value="15"/> 
+            <xsd:pattern value="[1-4]\d\d((0[1-9])|(1[0-2]))\d[0-9AB]\d{8}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="Adresse">
+        <xsd:sequence>
+            <xsd:element name="étage"   type="xsd:int" minOccurs="0"/>
+            <xsd:element name="numéro"  type="xsd:int" minOccurs="0"/>
+            <xsd:element name="rue"     type="xsd:string"/>
+            <xsd:element name="ville"   type="xsd:string"/>
+            <xsd:element name="codePostal"  type="CodePostal"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:simpleType name="CodePostal">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="\d{5}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="Visite">
+        <xsd:sequence>
+            <xsd:element name="acte" type="Acte" maxOccurs="unbounded"/>
+        </xsd:sequence>
+        <xsd:attribute name="date" type="xsd:date"/>
+        <xsd:attribute name="intervenant" type="IntervenantId"/>
+    </xsd:complexType>
+    
+    <xsd:simpleType name="IntervenantId">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="\d{3}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="Acte">
+        <xsd:attribute name="id" type="xsd:int"/>
+    </xsd:complexType>
+    
+</xsd:schema>

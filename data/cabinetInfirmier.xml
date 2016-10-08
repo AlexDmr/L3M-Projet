@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?><cabinet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.ujf-grenoble.fr/l3miage/cabinet" xsi:schemaLocation="http://www.ujf-grenoble.fr/l3miage/cabinet/../schema/cabinet.xsd">
+    <nom>Soins à Grenoble</nom>
+    <adresse>
+        <numéro>60</numéro>
+        <rue>rue de la Chimie</rue>
+        <ville>Grenoble</ville>
+        <codePostal>38041</codePostal>
+    </adresse>
+    <infirmiers>
+        <infirmier id="001">
+            <nom>Versaire</nom>
+            <prénom>Annie</prénom>
+            <photo>homer1.gif</photo>
+        </infirmier>
+        <infirmier id="002">
+            <nom>Cent</nom>
+            <prénom>Sally</prénom>
+            <photo>lisa111.gif</photo>
+        </infirmier>
+        <infirmier id="003">
+            <nom>Nouie</nom>
+            <prénom>Eva</prénom>
+            <photo>maggie111.gif</photo>
+        </infirmier>
+    </infirmiers>
+    <patients>
+        <patient>
+            <nom>Aire</nom>
+            <prénom>Axel</prénom>
+            <sexe>M</sexe>
+            <naissance>1993-06-13</naissance>
+            <!-- Homme, né en juin 93 en France, à Marseille (n° 55 en bouches du rhône) 
+            453e naissance (clé calculée: 19)-->
+            <numéro>193061305545319</numéro>
+            <adresse>
+                <étage>4</étage>
+                <numéro>46</numéro>
+                <rue>avenue Félix Viallet</rue>
+                <ville>Grenoble</ville>
+                <codePostal>38031</codePostal>            
+            </adresse>
+                <!-- Ici, j'ai choisi d'identifier l'infirmière par un numéro.
+                Un prénom peut porter à confusion.
+                Un login peut être ok -->
+                
+                <!-- 
+                Axel a eu un accident de moto à cause duquel il a dû être opéré.
+                Il est immobilisé pour un mois et doit donc recevoir des injections
+                sous-cutanées d'anti-coagulant tous les jours pendant une semaine pour éviter les flébites.
+                (Q: Peut-on ajouter la contrainte qu'elles doievent être faites à la même heure chaque jour ?)
+                L'intervenant qui prend en charge Axel est le n°2. Cet intervenant
+                ne travaille pas le mercredi et doit donc céder sa place à l'intervenant
+                n°1 ce jour là.
+                Lors de la dernière visite, l'intervenant doit aussi enlever les 25 points de suture de son opération.
+                -->
+                <visite date="2014-12-08" intervenant="001">
+                    <acte id="109"/>               
+                </visite>
+                
+        </patient>
+        <patient>        
+            <nom>Orouge</nom>
+            <prénom>Elvire</prénom>
+            <sexe>F</sexe>
+            <naissance>1980-03-08</naissance>
+            <!-- Femme, née en mars 80 en France, à Lyon (n° 23 dans le rhône) 
+            52e naissance (clé calculée: 19)-->
+            <numéro>280036902305219</numéro>        
+            <adresse>
+                <rue>Rond-Point de la Croix de Vie</rue> 
+                <ville>La Tronche</ville>
+                <codePostal>38700</codePostal>           
+            </adresse>
+              <!-- 
+                Elvire a été gravement brulée, et l'intervenant doit changer son 
+                pansement tous les 2 jours
+                (Pansement de brûlure étendue ou de plaie chimique ou thermique étendue,
+                    sur une surface supérieure à 5 % de la surface corporelle.....)
+                -->
+                <visite date="2014-12-08" intervenant="001">
+                    <acte id="300"/>               
+                </visite>
+                
+        </patient>
+        <patient>        
+            <nom>Oscare</nom>
+            <prénom>Pien</prénom>
+            <sexe>M</sexe>
+            <naissance>1975-10-25</naissance>
+            <!-- Homme, née en octobre 75 en France, à Chambéry (n° 65 dans la Savoie) 
+            692e naissance (clé calculée: 67)-->
+            <numéro>175107306569267</numéro>
+            <adresse>
+                <rue>rue Casimir Brenier</rue>
+                <ville>Grenoble</ville>
+                <codePostal>38000</codePostal>
+            </adresse>
+                <!-- 
+                Oscar s'est cassé l'os du pied en jouant au foot. d
+                Il a besoin d'un prélèvement par ponction veineuse directe le premier
+                jour et injection intraveineuse directe isolée d'anthalgiques les 
+                autres jours.
+                -->
+                <visite date="2014-12-08" intervenant="001">
+                    <acte id="101"/>
+                    <acte id="104"/>               
+                </visite>
+                
+        </patient>
+        <patient>        
+            <nom>Xavier</nom>
+            <prénom>Kapoëtla</prénom>
+            <sexe>M</sexe>
+            <naissance>2010-08-02</naissance>
+            <!-- Garçon (4 ans) né en août 2010 en France, à Bordeaux (n° 63 dans la Gironde) 
+            35e naissance (clé calculée: 70)-->
+            <numéro>110083306303570</numéro>
+            <adresse>
+                <numéro>25</numéro>
+                <rue>rue des Martyrs</rue>
+                <ville>Grenoble</ville>
+                <codePostal>38042</codePostal>
+            </adresse>
+                <!-- 
+                Le jeune Xavier est en cours de désensibilation alergique.
+                Il doit recevoir tous les jours, l'injection de plusieurs allergènes, etc.
+                -->
+                <visite date="2014-12-08" intervenant="001">
+                    <acte id="111"/>               
+                </visite>
+                
+        </patient>
+        <patient>
+            <nom>Peplu</nom>
+            <prénom>Jean</prénom>
+            <sexe>M</sexe>
+            <naissance>1910-08-02</naissance>
+            <!-- Né dans le Doubs, il y a 104 ans dans le commune de Les Combes 
+            (n° 160), 20e naissance (clé calculée: 10) -->
+            <numéro>110082516002010</numéro>
+            <adresse>            
+                <numéro>655</numéro>
+                <rue>Avenue de l'Europe</rue>
+                <ville>Montbonnot-Saint-Martin</ville>
+                <codePostal>38330</codePostal>
+            </adresse>
+                <visite date="2014-12-08" intervenant="001">
+                    <acte id="401"/>
+                </visite>
+                
+        </patient>
+        </patients>
+    </cabinet>
