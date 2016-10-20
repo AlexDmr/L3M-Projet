@@ -186,7 +186,7 @@ export class AlxDraggable {
             let visibility = this.cloneNode.style.visibility;
             this.cloneNode.style.visibility = "hidden";
             // let L = <Array<Element>>myDoc.elementsFromPoint(x-window.pageXOffset, y-window.pageYOffset);
-            element = myDoc.elementFromPoint(x-window.pageXOffset, y-window.pageYOffset);
+            element = myDoc.elementFromPoint(x, y); //(x-window.pageXOffset, y-window.pageYOffset);
             //console.log( "element", element );
             this.cloneNode.style.visibility = visibility;
             this.possibleDropZones.forEach( dz => dz.removePointerHover(this.idPointer) );
