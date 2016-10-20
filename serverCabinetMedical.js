@@ -147,16 +147,17 @@ function init(port, applicationServerIP, applicationServerPort) {
 	// Define HTTP ressource PORT /addPatient, may contains new patient information
 	app.post( '/addPatient'
 			, function(req, res) {
-				 console.log("/addPatient, \nreq.body:\n\t", req.body, "\n_______________________");
-				 req.body.patientName		= req.body.patientName		|| '';
-				 req.body.patientForname	= req.body.patientForname	|| '';
-				 req.body.patientNumber		= req.body.patientNumber	|| '';
-				 req.body.patientSex		= req.body.patientSex		|| '';
-				 req.body.patientBirthday	= req.body.patientBirthday	|| '';
-				 req.body.patientFloor		= req.body.patientFloor		|| '';
-				 req.body.patientStreet		= req.body.patientStreet	|| '';
-				 req.body.patientPostalCode	= req.body.patientPostalCode|| '';
-				 req.body.patientCity		= req.body.patientCity		|| '';
+				console.log("/addPatient, \nreq.body:\n\t", req.body, "\n_______________________");
+				req.body.patientName			= req.body.patientName			|| '';
+				req.body.patientForname		    = req.body.patientForname		|| '';
+				req.body.patientNumber			= req.body.patientNumber		|| '';
+				req.body.patientSex			    = req.body.patientSex			|| '';
+				req.body.patientBirthday		= req.body.patientBirthday		|| '';
+			    req.body.patientFloor			= req.body.patientFloor			|| '';
+				req.body.patientStreetNumber	= req.body.patientStreetNumber	|| '';
+				req.body.patientStreet			= req.body.patientStreet		|| '';
+				req.body.patientPostalCode		= req.body.patientPostalCode	|| '';
+				req.body.patientCity			= req.body.patientCity			|| '';
 				 
 				 var patients = doc.getElementsByTagName('patients')[0];
 				 // Is it a new patient or not ?
@@ -196,11 +197,11 @@ function init(port, applicationServerIP, applicationServerPort) {
 					// Adress
 					var adresse = doc.createElement('adresse');
 					newPatient.appendChild( adresse );
-						var etage = doc.createElement('etage');
+						var etage = doc.createElement('étage');
 						etage.appendChild( doc.createTextNode(req.body.patientFloor) );
 						adresse.appendChild( etage );
 						var numAdress = doc.createElement('numéro');
-						numAdress.appendChild( doc.createTextNode(req.body.patientFloor) );
+						numAdress.appendChild( doc.createTextNode(req.body.patientStreetNumber) );
 						adresse.appendChild( numAdress );
 						var rue = doc.createElement('rue');
 						rue.appendChild( doc.createTextNode(req.body.patientStreet) );
