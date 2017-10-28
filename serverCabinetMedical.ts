@@ -140,22 +140,22 @@ function init(port, applicationServerIP, applicationServerPort) {
     app.post( "/addPatient", (req, res) => {
             console.log("/addPatient, \nreq.body:\n\t", req.body, "\n_______________________");
             const patient = {
-                prenom: req.body.patientForname || "",
+                prénom: req.body.patientForname || "",
                 nom: req.body.patientName || "",
                 sexe: req.body.patientSex || "F",
-                numeroSecuriteSociale: req.body.patientNumber || "undefined",
+                numéroSécuriteSociale: req.body.patientNumber || "undefined",
                 adresse: {
                     ville: req.body.patientCity || "",
                     codePostal: req.body.patientPostalCode || "",
                     rue: req.body.patientStreet || "",
-                    numero: req.body.patientStreetNumber || "",
-                    etage: req.body.patientFloor || ""
+                    numéro: req.body.patientStreetNumber || "",
+                    étage: req.body.patientFloor || ""
                 }
             };
 
             const patients = doc.getElementsByTagName("patients")[0];
             // Is it a new patient or not ?
-            let newPatient = getPatient(doc, patient.numeroSecuriteSociale);
+            let newPatient = getPatient(doc, patient.numéroSécuriteSociale);
             if(newPatient === null) {
                 newPatient = doc.createElement("patient");
                 patients.appendChild( newPatient );
@@ -170,11 +170,11 @@ function init(port, applicationServerIP, applicationServerPort) {
             newPatient.appendChild( nom );
             // Forname
             const prénom = doc.createElement("prénom");
-            prénom.appendChild( doc.createTextNode(patient.prenom) );
+            prénom.appendChild( doc.createTextNode(patient.prénom) );
             newPatient.appendChild( prénom );
             // Social security number
             const numéro = doc.createElement("numéro");
-            numéro.appendChild( doc.createTextNode(patient.numeroSecuriteSociale) );
+            numéro.appendChild( doc.createTextNode(patient.numéroSécuriteSociale) );
             newPatient.appendChild( numéro );
             // Sex
             const sexe = doc.createElement("sexe");
@@ -192,10 +192,10 @@ function init(port, applicationServerIP, applicationServerPort) {
             const adresse = doc.createElement("adresse");
             newPatient.appendChild( adresse );
                 const etage = doc.createElement("étage");
-                etage.appendChild( doc.createTextNode(patient.adresse.etage) );
+                etage.appendChild( doc.createTextNode(patient.adresse.étage) );
                 adresse.appendChild( etage );
                 const numAdress = doc.createElement("numéro'");
-                numAdress.appendChild( doc.createTextNode(patient.adresse.numero) );
+                numAdress.appendChild( doc.createTextNode(patient.adresse.numéro) );
                 adresse.appendChild( numAdress );
                 const rue = doc.createElement("rue");
                 rue.appendChild( doc.createTextNode(patient.adresse.rue) );

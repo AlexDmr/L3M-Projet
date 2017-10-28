@@ -26,6 +26,7 @@
             <xsd:element name="nom"/>
             <xsd:element name="prénom"/>
             <xsd:element name="photo" type="xsd:anyURI"/>
+            <xsd:element name="adresse"     type="Adresse"/>
         </xsd:sequence>
         <xsd:attribute name="id" type="IntervenantId"/>
     </xsd:complexType>

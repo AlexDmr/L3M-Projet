@@ -1,26 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?><cabinet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.ujf-grenoble.fr/l3miage/cabinet" xsi:schemaLocation="http://www.ujf-grenoble.fr/l3miage/cabinet/../schema/cabinet.xsd">
     <nom>Soins à Grenoble</nom>
     <adresse>
-        <numéro>60</numéro>
-        <rue>rue de la Chimie</rue>
-        <ville>Grenoble</ville>
-        <codePostal>38041</codePostal>
+        <numéro>36</numéro>
+        <rue>mail Marcel Cachin</rue>
+        <ville>Fontaine</ville>
+        <codePostal>38600</codePostal>
     </adresse>
     <infirmiers>
         <infirmier id="001">
             <nom>Versaire</nom>
             <prénom>Annie</prénom>
             <photo>homer1.gif</photo>
+            <adresse>
+                <numéro>50</numéro>
+                <rue>route de Grenoble</rue>
+                <ville>Vizille</ville>
+                <codePostal>38220</codePostal>
+            </adresse>
         </infirmier>
         <infirmier id="002">
             <nom>Cent</nom>
             <prénom>Sally</prénom>
             <photo>lisa111.gif</photo>
+            <adresse>
+                <numéro>1</numéro>
+                <rue>Avenue de Verdun</rue>
+                <ville>Voiron</ville>
+                <codePostal>38500</codePostal>
+            </adresse>
         </infirmier>
         <infirmier id="003">
             <nom>Nouie</nom>
             <prénom>Eva</prénom>
             <photo>maggie111.gif</photo>
+            <adresse>
+                <numéro>10</numéro>
+                <rue>Lotissement de la plaine</rue>
+                <ville>Le Versoud</ville>
+                <codePostal>38420</codePostal>
+            </adresse>
         </infirmier>
     </infirmiers>
     <patients>
@@ -53,7 +71,7 @@
                 n°1 ce jour là.
                 Lors de la dernière visite, l'intervenant doit aussi enlever les 25 points de suture de son opération.
                 -->
-                <visite date="2014-12-08" intervenant="003">
+                <visite date="2014-12-08" intervenant="002">
                     <acte id="109"/>               
                 </visite>
                 
@@ -101,7 +119,7 @@
                 jour et injection intraveineuse directe isolée d'anthalgiques les 
                 autres jours.
                 -->
-                <visite date="2014-12-08" intervenant="003">
+                <visite date="2014-12-08" intervenant="002">
                     <acte id="101"/>
                     <acte id="104"/>               
                 </visite>
@@ -144,7 +162,7 @@
                 <ville>Montbonnot-Saint-Martin</ville>
                 <codePostal>38330</codePostal>
             </adresse>
-                <visite date="2014-12-08" intervenant="002">
+                <visite date="2014-12-08" intervenant="003">
                     <acte id="401"/>
                 </visite>
                 
