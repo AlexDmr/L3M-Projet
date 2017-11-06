@@ -249,7 +249,7 @@ function init(port, applicationServerIP, applicationServerPort) {
     });
     app.post( "/infirmiereLocale", (req, res) => {
         // const url = "http://" + applicationServer.ip + ":" + applicationServer.port + "/INFIRMIERE";
-        const url = "http://" + applicationServer.ip + ":8080/CabinetInfirmierServer/CabinetInfirmier?wsdl";
+        const url = `http://${applicationServer.ip}:${applicationServer.port}/CabinetInfirmierServer/CabinetInfirmier?wsdl`;
         soap.createClientAsync(url).then(
             (client: soap.Client) => {
                 const fct = client["getHTML"];
