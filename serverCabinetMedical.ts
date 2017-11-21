@@ -157,7 +157,7 @@ function init(port, applicationServerIP, applicationServerPort) {
             const patients = doc.getElementsByTagName("patients")[0];
             // Is it a new patient or not ?
             let newPatient = getPatient(doc, patient.numéroSécuriteSociale);
-            if(newPatient === null) {
+            if(!newPatient) {
                 newPatient = doc.createElement("patient");
                 patients.appendChild( newPatient );
             } else	{// Erase subtree
@@ -195,7 +195,7 @@ function init(port, applicationServerIP, applicationServerPort) {
                 const etage = doc.createElement("étage");
                 etage.appendChild( doc.createTextNode(patient.adresse.étage) );
                 adresse.appendChild( etage );
-                const numAdress = doc.createElement("numéro'");
+                const numAdress = doc.createElement("numéro");
                 numAdress.appendChild( doc.createTextNode(patient.adresse.numéro) );
                 adresse.appendChild( numAdress );
                 const rue = doc.createElement("rue");

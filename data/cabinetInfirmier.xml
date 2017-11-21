@@ -95,7 +95,7 @@
                 (Pansement de brûlure étendue ou de plaie chimique ou thermique étendue,
                     sur une surface supérieure à 5 % de la surface corporelle.....)
                 -->
-                <visite date="2014-12-08" intervenant="003">
+                <visite date="2014-12-08" intervenant="002">
                     <acte id="300"/>               
                 </visite>
                 
@@ -162,7 +162,7 @@
                 <ville>Montbonnot-Saint-Martin</ville>
                 <codePostal>38330</codePostal>
             </adresse>
-                <visite date="2014-12-08" intervenant="003">
+                <visite date="2014-12-08" intervenant="001">
                     <acte id="401"/>
                 </visite>
                 
