@@ -40,8 +40,8 @@ function saveXML(doc: XMLDocument, res: express.Response) {
  * Returns DOM node of patient identified by numlber in document doc or null if there is no such patient ---------------------------
  **/
 function getPatient(doc: XMLDocument, socialSecurityNumber: string): Element {
-    const L = Array.from( doc.getElementsByTagName("patient") ); // doc.getElementsByTagName('patient');
-    return L.find( E => E.textContent === socialSecurityNumber );
+    const L: Element[] = Array.from( doc.getElementsByTagName("patient") ); // doc.getElementsByTagName('patient');
+    return L.find( E => E.getElementsByTagName("numéro")[0].textContent === socialSecurityNumber );
 }
 
 
@@ -144,6 +144,7 @@ function init(port, applicationServerIP, applicationServerPort) {
                 prénom: req.body.patientForname || "",
                 nom: req.body.patientName || "",
                 sexe: req.body.patientSex || "F",
+                naissance: req.body.naissance || "",
                 numéroSécuriteSociale: req.body.patientNumber || "undefined",
                 adresse: {
                     ville: req.body.patientCity || "",
@@ -165,6 +166,7 @@ function init(port, applicationServerIP, applicationServerPort) {
                     newPatient.removeChild( newPatient.childNodes[0] );
                 }
             }
+
             // Name
             const nom = doc.createElement("nom");
             nom.appendChild( doc.createTextNode(patient.nom) );
@@ -182,9 +184,9 @@ function init(port, applicationServerIP, applicationServerPort) {
             sexe.appendChild( doc.createTextNode(patient.sexe) );
             newPatient.appendChild( sexe );
             // Birthday
-            /*const naissance = doc.createElement('naissance');
-            naissance.appendChild( doc.createTextNode(patient.) );
-            newPatient.appendChild( naissance );*/
+            const naissance = doc.createElement("naissance");
+            naissance.appendChild( doc.createTextNode(patient.naissance) );
+            newPatient.appendChild( naissance );
             // Visites
             const visite = doc.createElement("visite");
             visite.setAttribute("date", "2014-12-08");
