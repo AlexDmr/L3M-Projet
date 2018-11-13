@@ -8,7 +8,7 @@ import {DOMParser, XMLSerializer} from "xmldom";
 import * as multer from "multer";
 import * as request from "request";
 import * as staticGzip from "http-static-gzip-regexp";
-import * as libXML from "libxmljs";
+// import * as libXML from "libxmljs";
 import * as soap from "soap";
 
 let xmlSerializer   = new XMLSerializer();
@@ -249,54 +249,8 @@ function init(port, applicationServerIP, applicationServerPort) {
                 + ". WARNING: You should configure the optimization application server IP and port. "
                 + "//By default, the optimization application server is configured to be the HCI one." );
     });
-    app.post( "/infirmiereLocale", (req, res) => {
-        // const url = "http://" + applicationServer.ip + ":" + applicationServer.port + "/INFIRMIERE";
-        const url = `http://${applicationServer.ip}:${applicationServer.port}/CabinetInfirmierServer/CabinetInfirmier?wsdl`;
-        soap.createClientAsync(url).then(
-            (client: soap.Client) => {
-                const fct = client["getHTML"];
-                // console.log("fct =", fct);
-                return fct.apply(null, [{id: req.body.id}, (err, wsdlRes, raw, soapHeader) => {
-                    console.log( {
-                        err: err,
-                        wsdlRes: wsdlRes,
-                        raw: raw,
-                        soapHeader: soapHeader
-                    });
-                    if (err) {
-                        res.status( 500 );
-                        res.end(err);
-                    } else {
-                        const str = typeof wsdlRes === "string" ? wsdlRes : wsdlRes.return;
-                        res.end( str );
-                    }
-                }] );
-            },
-            err => {
-                console.error("WSDL error", err);
-                res.end( err );
-            });
-        /*
-        const form = {
-            id	: req.body.id,
-            xml	: xmlSerializer.serializeToString( doc )
-        };
-        const url = "http://" + applicationServer.ip + ":" + applicationServer.port + "/INFIRMIERE";
-        console.log("Contacting", url);
-        request.post( { url	: url, form	: form }, (err, httpResponse, body) => {
-                if(err) {
-                    res.writeHead(400);
-                    res.write("Error on the optimization application server: ");
-                    res.end( );
-                } else	{
-                    res.end( body );
-                }
-            }
-        );
-        */
-        }
-    );
 
+    /*
     app.get ( "/check", (req, res) => {
             const P_xml: Promise<string> = fs.readFile( __dirname + "/data/cabinetInfirmier.xml" ).then(
                 dataBuffer => dataBuffer.toString()
@@ -320,7 +274,7 @@ function init(port, applicationServerIP, applicationServerPort) {
                 }
             );
         }
-    );
+    );*/
 }
 
 /**_________________________________________________________________________________________________________________________________
@@ -337,11 +291,9 @@ const port					= params["port"]      			  || "8090"
     , applicationServerPort	= params["applicationServerPort"] || "8080"
 ;
 console.log(`Usage :
-    node staticServeur.js [port:PORT] [applicationServerIP:IP] [applicationServerPort:PORT]
+    node staticServeur.js [port:PORT]
     Default port is 8090.
-    Default applicationServerIP is 127.0.0.1.
-    Default applicationServerPort is 8080
-    The application server is requested over WSDL protocol, it invokes the getHTML method.
+    Current port is ${port}
 `);
 console.log("HTTP server listening on port ", port);
 init(port, applicationServerIP, applicationServerPort);
