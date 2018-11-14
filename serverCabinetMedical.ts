@@ -9,7 +9,7 @@ import * as multer from "multer";
 import * as request from "request";
 import * as staticGzip from "http-static-gzip-regexp";
 // import * as libXML from "libxmljs";
-import * as soap from "soap";
+// import * as soap from "soap";
 
 let xmlSerializer   = new XMLSerializer();
 let domParser       = new DOMParser();

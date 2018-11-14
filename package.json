@@ -18,7 +18,6 @@
     "http-static-gzip-regexp": "0.0.2",
     "multer": "^1.3.0",
     "request": "^2.88.0",
-    "soap": "^0.25.0",
     "xmldom": "^0.1.27"
   },
   "devDependencies": {
